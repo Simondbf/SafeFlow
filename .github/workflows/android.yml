@@ -1,0 +1,65 @@
+name: Android CI - Build APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual trigger from Actions tab
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Grant execute permission for gradlew
+      run: chmod +x android/gradlew
+      
+    - name: Cache Gradle packages
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: Build Debug APK
+      run: |
+        cd android
+        ./gradlew assembleDebug --stacktrace
+        
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: SafeFlow-Debug-APK
+        path: android/app/build/outputs/apk/debug/app-debug.apk
+        retention-days: 30
+        
+    - name: Build Success Summary
+      run: |
+        echo "✅ APK Build Successful!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "📱 **SafeFlow Debug APK**" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "- **Location**: \`android/app/build/outputs/apk/debug/app-debug.apk\`" >> $GITHUB_STEP_SUMMARY
+        echo "- **Min SDK**: 33 (Android 13)" >> $GITHUB_STEP_SUMMARY
+        echo "- **Target SDK**: 35 (Android 15/16)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 📥 Download Instructions:" >> $GITHUB_STEP_SUMMARY
+        echo "1. Go to the **'Summary'** section above" >> $GITHUB_STEP_SUMMARY
+        echo "2. Scroll to **'Artifacts'**" >> $GITHUB_STEP_SUMMARY
+        echo "3. Click on **'SafeFlow-Debug-APK'** to download" >> $GITHUB_STEP_SUMMARY
+        echo "4. Transfer to your Android device and install" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "⚠️ **Note**: Enable 'Install from Unknown Sources' in Settings if needed" >> $GITHUB_STEP_SUMMARY
