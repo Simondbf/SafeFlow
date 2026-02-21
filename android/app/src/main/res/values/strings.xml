@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SafeFlow</string>
+    <string name="subtitle">App Protection System</string>
+    <string name="protection_status">Protection Status</string>
+    <string name="protection_active">Protection Active</string>
+    <string name="protection_inactive">Protection Inactive</string>
+    <string name="accessibility_service_description">SafeFlow monitors app usage to block specified applications for your protection.</string>
+    <string name="accessibility_instruction">To enable SafeFlow protection, you need to grant Accessibility permission in Settings.</string>
+    <string name="open_settings">Open Accessibility Settings</string>
+    <string name="service_enabled">SafeFlow Protection Enabled</string>
+    <string name="service_disabled">SafeFlow Protection Disabled</string>
+</resources>
