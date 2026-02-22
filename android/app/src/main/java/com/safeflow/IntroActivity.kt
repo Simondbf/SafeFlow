@@ -20,10 +20,12 @@ class IntroActivity : AppCompatActivity() {
     private lateinit var titleText: TextView
     private lateinit var descriptionText: TextView
     private lateinit var nextButton: Button
+    private lateinit var previousButton: Button
     private lateinit var startButton: Button
     private lateinit var stepIndicator: TextView
     private lateinit var discordButton: Button
     private lateinit var activateProtectionButton: Button
+    private lateinit var openAccessibilityButton: Button
 
     private lateinit var devicePolicyManager: DevicePolicyManager
     private lateinit var adminComponent: ComponentName
