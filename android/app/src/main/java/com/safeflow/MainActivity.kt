@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var discordButton: Button
     private lateinit var versionText: TextView
     private lateinit var unlockIcon: TextView
+    private lateinit var settingsIcon: TextView
 
     private lateinit var devicePolicyManager: DevicePolicyManager
     private lateinit var adminComponent: ComponentName
