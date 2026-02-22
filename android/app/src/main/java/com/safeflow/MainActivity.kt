@@ -55,9 +55,10 @@ class MainActivity : AppCompatActivity() {
             discordButton = findViewById(R.id.discordButton)
             versionText = findViewById(R.id.versionText)
             unlockIcon = findViewById(R.id.unlockIcon)
+            settingsIcon = findViewById(R.id.settingsIcon)
             
             // Set version
-            versionText.text = "v1.0"
+            versionText.text = "v1.1"
             
             // Set up buttons
             activateButton.setOnClickListener {
