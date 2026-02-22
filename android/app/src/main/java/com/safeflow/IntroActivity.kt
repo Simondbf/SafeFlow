@@ -71,8 +71,25 @@ class IntroActivity : AppCompatActivity() {
                 updateContent()
             }
         }
+        
+        previousButton.setOnClickListener {
+            if (currentStep > 0) {
+                currentStep--
+                updateContent()
+            }
+        }
 
         startButton.setOnClickListener {
+            // Check if Device Admin is activated
+            if (!devicePolicyManager.isAdminActive(adminComponent)) {
+                Toast.makeText(
+                    this,
+                    "⚠️ Veuillez activer la protection d'abord",
+                    Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+            
             // Mark as not first run
             prefs.edit().putBoolean("isFirstRun", false).apply()
             startMainActivity()
@@ -84,6 +101,10 @@ class IntroActivity : AppCompatActivity() {
 
         activateProtectionButton.setOnClickListener {
             activateDeviceAdmin()
+        }
+        
+        openAccessibilityButton.setOnClickListener {
+            openAccessibilitySettings()
         }
 
         // Show first step
