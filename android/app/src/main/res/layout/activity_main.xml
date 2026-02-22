@@ -12,23 +12,78 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SafeFlow"
-        android:textSize="36sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="#2196F3"
         android:layout_marginBottom="48dp" />
 
-    <!-- Enable Protection Button -->
+    <!-- Status Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#FFFFFF"
+        android:padding="32dp"
+        android:elevation="4dp"
+        android:layout_marginBottom="32dp">
+
+        <!-- Status Icon -->
+        <TextView
+            android:id="@+id/statusIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚠️"
+            android:textSize="64sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Status Text -->
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NON PROTÉGÉ"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Status Description -->
+        <TextView
+            android:id="@+id/statusDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activez la protection pour commencer"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+    <!-- Activate Button -->
     <Button
-        android:id="@+id/enableProtectionButton"
+        android:id="@+id/activateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ACTIVER LA PROTECTION"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
         android:background="#2196F3"
-        android:paddingVertical="16dp"
+        android:paddingVertical="18dp"
         android:layout_marginBottom="24dp" />
+
+    <!-- Discord Button -->
+    <Button
+        android:id="@+id/discordButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rejoindre Discord"
+        android:textSize="14sp"
+        android:textColor="#5865F2"
+        android:background="#E8EAF6"
+        android:paddingVertical="14dp"
+        android:layout_marginBottom="16dp" />
 
     <!-- Version Text -->
     <TextView
@@ -36,17 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="v1.0"
-        android:textSize="14sp"
-        android:textColor="#757575" />
-
-    <!-- Info Text -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Appuyez sur le bouton pour activer la protection"
-        android:textSize="14sp"
-        android:textColor="#757575"
-        android:gravity="center"
-        android:layout_marginTop="32dp" />
+        android:textSize="12sp"
+        android:textColor="#9E9E9E" />
 
 </LinearLayout>
