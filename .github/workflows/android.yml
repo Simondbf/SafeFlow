@@ -21,8 +21,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Grant execute permission for gradlew
-      run: chmod +x android/gradlew
+    - name: Make gradlew executable
+      run: |
+        chmod +x android/gradlew
+        ls -la android/gradlew
       
     - name: Cache Gradle packages
       uses: actions/cache@v4
