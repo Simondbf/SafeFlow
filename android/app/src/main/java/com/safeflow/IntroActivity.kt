@@ -118,9 +118,11 @@ class IntroActivity : AppCompatActivity() {
                 titleText.text = "Bienvenue sur SafeFlow"
                 descriptionText.text = "SafeFlow protège votre navigation en bloquant automatiquement les sites indésirables.\n\nRestez concentré et en sécurité."
                 nextButton.visibility = View.VISIBLE
+                previousButton.visibility = View.GONE
                 startButton.visibility = View.GONE
                 discordButton.visibility = View.GONE
                 activateProtectionButton.visibility = View.GONE
+                openAccessibilityButton.visibility = View.GONE
                 stepIndicator.text = "1 / 3"
             }
             1 -> {
@@ -128,9 +130,11 @@ class IntroActivity : AppCompatActivity() {
                 titleText.text = "Permissions Requises"
                 descriptionText.text = "SafeFlow a besoin du service d'accessibilité pour détecter et bloquer les applications.\n\nVos données restent privées et locales."
                 nextButton.visibility = View.VISIBLE
+                previousButton.visibility = View.VISIBLE
                 startButton.visibility = View.GONE
                 discordButton.visibility = View.GONE
                 activateProtectionButton.visibility = View.GONE
+                openAccessibilityButton.visibility = View.VISIBLE
                 stepIndicator.text = "2 / 3"
             }
             2 -> {
@@ -138,9 +142,11 @@ class IntroActivity : AppCompatActivity() {
                 titleText.text = "Protection Maximale"
                 descriptionText.text = "Activez la protection anti-désinstallation pour sécuriser l'application.\n\nRejoignez aussi notre communauté Discord !"
                 nextButton.visibility = View.GONE
+                previousButton.visibility = View.VISIBLE
                 startButton.visibility = View.VISIBLE
                 discordButton.visibility = View.VISIBLE
                 activateProtectionButton.visibility = View.VISIBLE
+                openAccessibilityButton.visibility = View.GONE
                 stepIndicator.text = "3 / 3"
             }
         }
