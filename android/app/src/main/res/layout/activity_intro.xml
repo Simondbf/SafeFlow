@@ -75,6 +75,20 @@
         android:paddingVertical="16dp"
         android:layout_marginBottom="16dp" />
 
+    <!-- Open Accessibility Settings Button -->
+    <Button
+        android:id="@+id/openAccessibilityButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OUVRIR PARAMÈTRES ACCESSIBILITÉ"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#FF9800"
+        android:paddingVertical="14dp"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp" />
+
     <!-- Start Button -->
     <Button
         android:id="@+id/startButton"
