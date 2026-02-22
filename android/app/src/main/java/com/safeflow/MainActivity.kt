@@ -1,12 +1,16 @@
 package com.safeflow
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
+
+    private val updateChecker by lazy { UpdateChecker(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,10 +18,14 @@ class MainActivity : AppCompatActivity() {
         try {
             setContentView(R.layout.activity_main)
             
-            // Find the "Enable Protection" button
-            val enableButton = findViewById<MaterialButton>(R.id.openSettingsButton)
+            // Find views
+            val enableButton = findViewById<Button>(R.id.enableProtectionButton)
+            val versionText = findViewById<TextView>(R.id.versionText)
             
-            // Set up button click listener to open accessibility settings
+            // Set version text
+            versionText?.text = "v1.0"
+            
+            // Set up enable protection button
             enableButton?.setOnClickListener {
                 try {
                     openAccessibilitySettings()
@@ -25,6 +33,44 @@ class MainActivity : AppCompatActivity() {
                     e.printStackTrace()
                 }
             }
+            
+            // Check for updates
+            checkForUpdates()
+            
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun checkForUpdates() {
+        try {
+            updateChecker.checkForUpdate { updateInfo ->
+                if (updateInfo != null) {
+                    // Run on UI thread to show dialog
+                    runOnUiThread {
+                        showUpdateDialog(updateInfo)
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun showUpdateDialog(updateInfo: UpdateChecker.UpdateInfo) {
+        try {
+            AlertDialog.Builder(this)
+                .setTitle("Mise à jour disponible")
+                .setMessage("Une nouvelle version (${updateInfo.version}) est prête. Voulez-vous la télécharger ?")
+                .setPositiveButton("Oui") { dialog, _ ->
+                    updateChecker.downloadUpdate(updateInfo.downloadUrl)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Non") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setCancelable(false)
+                .show()
         } catch (e: Exception) {
             e.printStackTrace()
         }
