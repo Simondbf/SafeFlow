@@ -1,132 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp"
     android:background="#FFFFFF">
 
-    <!-- Step Indicator -->
-    <TextView
-        android:id="@+id/stepIndicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1 / 3"
-        android:textSize="14sp"
-        android:textColor="#757575"
-        android:layout_marginBottom="32dp" />
-
-    <!-- App Logo/Icon (Text version) -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🛡️"
-        android:textSize="72sp"
-        android:layout_marginBottom="24dp" />
-
-    <!-- Title -->
-    <TextView
-        android:id="@+id/introTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenue sur SafeFlow"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#2196F3"
-        android:gravity="center"
-        android:layout_marginBottom="24dp" />
-
-    <!-- Description -->
-    <TextView
-        android:id="@+id/introDescription"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description"
-        android:textSize="16sp"
-        android:textColor="#424242"
-        android:gravity="center"
-        android:lineSpacingExtra="4dp"
-        android:layout_marginBottom="48dp" />
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Previous Button -->
-    <Button
-        android:id="@+id/previousButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PRÉCÉDENT"
-        android:textSize="14sp"
-        android:textColor="#757575"
-        android:background="#E0E0E0"
-        android:paddingVertical="14dp"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Next Button -->
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SUIVANT"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:background="#2196F3"
-        android:paddingVertical="16dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Open Accessibility Settings Button -->
-    <Button
-        android:id="@+id/openAccessibilityButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OUVRIR PARAMÈTRES ACCESSIBILITÉ"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:background="#FF9800"
-        android:paddingVertical="14dp"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Start Button -->
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="COMMENCER"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:background="#4CAF50"
-        android:paddingVertical="16dp"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Activate Protection Button -->
-    <Button
-        android:id="@+id/activateProtectionButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🔒 ACTIVER PROTECTION"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:background="#FF5722"
-        android:paddingVertical="16dp"
-        android:visibility="gone"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Discord Button -->
-    <Button
-        android:id="@+id/discordButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rejoindre Discord"
-        android:textSize="14sp"
-        android:textColor="#5865F2"
-        android:background="#E8EAF6"
-        android:paddingVertical="12dp"
-        android:visibility="gone" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
