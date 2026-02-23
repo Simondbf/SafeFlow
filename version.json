@@ -1,5 +1,5 @@
 {
-  "version": "1.1",
-  "download_url": "https://github.com/Simondbf/SafeFlow/releases/download/v1.1/SafeFlow-v1.1.apk",
-  "release_notes": "SafeFlow v1.1 - Blocage intelligent de Bing et manga-news.com, UI améliorée avec icônes ⚙️ et 🔒, onboarding 3 étapes avec navigation, protection anti-désinstallation obligatoire."
+  "version": "1.0",
+  "download_url": "https://github.com/Simondbf/SafeFlow/releases/download/v1.0/SafeFlow-v1.0.apk",
+  "release_notes": "SafeFlow v1.0 - Refonte complète: Intro 4 pages avec ViewPager2, Dashboard épuré avec EditText pour ajouter sites, Settings safe room, Blocage rapide avec TYPE_WINDOW_CONTENT_CHANGED."
 }
